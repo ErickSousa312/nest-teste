@@ -1,0 +1,1 @@
+1. aqui vai ser como a pasta prisma dentro de respositorie ele vai implementar a classe 
