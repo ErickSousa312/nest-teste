@@ -1,13 +1,14 @@
 import { IsNotEmpty, Length } from 'class-validator';
 
-export class CreatePeople {
+export class User {
+  _id: number;
   @IsNotEmpty({
     message: 'O campo nome não pode estar vazio',
   })
   @Length(5, 7, {
     message: 'O campo deve possuir pelo menos 5 caracteres',
   })
-  name: string;
+  userName: string;
 
-  teamName: string;
+  password: string;
 }
