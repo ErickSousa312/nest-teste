@@ -7,8 +7,10 @@ export const PreSchemaUser = {
   useFactory: async () => {
     const schema = UserSchemaFactory;
     schema.pre('save', async function (next) {
-      const lastEntity = await FindDocuments('user');
-      console.log(lastEntity);
+      const lastEntity: any = await FindDocuments('user');
+      if (lastEntity && lastEntity._id) {
+        this._id = lastEntity._id + 1;
+      }
       next();
     });
     return schema;

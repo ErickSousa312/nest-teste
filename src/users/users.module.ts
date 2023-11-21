@@ -9,5 +9,6 @@ import { PreSchemaUser } from './configs/preSchema';
   imports: [MongooseModule.forFeatureAsync([PreSchemaUser])],
   controllers: [UsersController],
   providers: [UserService],
+  exports: [UserService],
 })
 export class UsersModule {}
