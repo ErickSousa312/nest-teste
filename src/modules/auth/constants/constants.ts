@@ -1,6 +1,11 @@
 import { SetMetadata } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+
 export const jwtConstants = {
-  secret: '7b55f59d034002b5fdb7eee735c8846f',
+  get secret() {
+    const configService = new ConfigService();
+    return configService.get<string>('SECRET');
+  },
 };
 
 export const IS_PUBLIC_KEY = 'isPublic';

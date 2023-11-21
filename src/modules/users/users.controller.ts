@@ -3,7 +3,7 @@ import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
 import { UserService } from './shared/user.service';
 import { ApiTags } from '@nestjs/swagger';
 import { UserDto } from './dto/user.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthGuard } from 'src/modules/auth/auth.guard';
 
 @ApiTags('users')
 @Controller('users')

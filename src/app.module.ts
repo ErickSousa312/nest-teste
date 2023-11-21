@@ -1,18 +1,14 @@
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { AuthGuard } from './auth/auth.guard';
-import { MongooseModule } from '@nestjs/mongoose';
+import { UsersModule } from './modules/users/users.module';
+import { AuthGuard } from './modules/auth/auth.guard';
 import { APP_GUARD } from '@nestjs/core';
+import { CustomConfigModule } from './config/config.module';
 
 @Module({
-  imports: [
-    AuthModule,
-    UsersModule,
-    MongooseModule.forRoot('mongodb://192.168.100.133:27018/db-nest'),
-  ],
+  imports: [AuthModule, UsersModule, CustomConfigModule],
   controllers: [AppController],
   providers: [
     AppService,
