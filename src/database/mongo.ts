@@ -6,7 +6,6 @@ export async function FindDocuments(
   configService: ConfigService,
 ) {
   const MONGODB_URI = configService.get<string>('MONGODB_URI');
-  console.log(MONGODB_URI);
   const a = new MongoClient(MONGODB_URI);
   const client = await a.connect();
   const db = client.db('db-nest');
