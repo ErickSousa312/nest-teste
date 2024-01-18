@@ -6,7 +6,7 @@ export type UserDocument = UserSchema & Document;
 
 @Schema({ collection: 'user', timestamps: true })
 export class UserSchema implements User {
-  @Prop({ default: 0 })
+  @Prop({ default: 1 })
   _id: number;
 
   @Prop()

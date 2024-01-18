@@ -2,7 +2,6 @@ import { SetMetadata } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 export const secret = (conf: ConfigService) => {
-  console.log('oi' + conf);
   return conf.get<string>('SECRET') as string;
 };
 

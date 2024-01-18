@@ -1,5 +1,3 @@
-import { IsNotEmpty, Length } from 'class-validator';
+import { Processo } from '../entities/processo.entity';
 
-export class Processo {
-    
-}
+export class ProcessoDto extends Processo {}

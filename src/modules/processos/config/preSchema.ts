@@ -1,18 +1,17 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UserSchema } from '../schemas/user.schema';
-import { UserSchemaFactory } from '../schemas/user.schema';
+import { ProcessoSchema } from '../schemas/processo.schema';
+import { ProcessoSchemaFactory } from '../schemas/processo.schema';
 import { FindDocuments } from 'src/database/mongo';
 
-export const PreSchemaUser = {
-  name: UserSchema.name,
+export const PreSchemaProcesso = {
+  name: ProcessoSchema.name,
   imports: [ConfigModule],
   useFactory: async (config: ConfigService) => {
-    const schema = UserSchemaFactory;
+    const schema = ProcessoSchemaFactory;
     schema.pre('save', async function (next) {
-      const lastEntity: any = await FindDocuments('user', config);
+      const lastEntity: any = await FindDocuments('processo', config);
       if (lastEntity && lastEntity._id) {
         this._id = lastEntity._id + 1;
-        console.log(this._id);
       }
       next();
     });

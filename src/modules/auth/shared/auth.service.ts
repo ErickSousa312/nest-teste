@@ -15,7 +15,7 @@ export class AuthService {
 
   async signIn(user: AuthDto): Promise<Typetoken> {
     const data = await this.userService.findOne(user.userName);
-    console.log(data);
+    (data);
     if (!data) {
       throw new HttpException(
         {

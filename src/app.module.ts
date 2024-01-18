@@ -6,9 +6,10 @@ import { UsersModule } from './modules/users/users.module';
 import { AuthGuard } from './modules/auth/auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { CustomConfigModule } from './config/config.module';
+import { ProcessoModule } from './modules/processos/processo.module';
 
 @Module({
-  imports: [AuthModule, UsersModule, CustomConfigModule],
+  imports: [AuthModule, UsersModule, ProcessoModule, CustomConfigModule],
   controllers: [AppController],
   providers: [
     AppService,

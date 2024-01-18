@@ -4,7 +4,6 @@ import { Body, Controller, Get } from '@nestjs/common';
 export class AppController {
   @Get('teste1')
   async getHello(@Body() body: any) {
-    console.log(body);
     // const { name, teamName } = body;
     return 'hello ';
   }
