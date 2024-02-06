@@ -3,7 +3,7 @@ import { IsNotEmpty } from 'class-validator';
 export class Processo {
   _id: number;
   @IsNotEmpty({
-    message: 'O campo number não pode estar vazio',
+    message: 'O campo IdPaciente não pode estar vazio',
   })
   IdPaciente: number;
   @IsNotEmpty({

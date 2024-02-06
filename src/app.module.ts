@@ -1,3 +1,4 @@
+import { EntidadeModule } from './modules/entidades/entidade.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
@@ -9,7 +10,13 @@ import { CustomConfigModule } from './config/config.module';
 import { ProcessoModule } from './modules/processos/processo.module';
 
 @Module({
-  imports: [AuthModule, UsersModule, ProcessoModule, CustomConfigModule],
+  imports: [
+    EntidadeModule,
+    AuthModule,
+    UsersModule,
+    ProcessoModule,
+    CustomConfigModule,
+  ],
   controllers: [AppController],
   providers: [
     AppService,

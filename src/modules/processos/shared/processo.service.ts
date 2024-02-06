@@ -14,10 +14,11 @@ export class ProcessoService {
     @InjectModel(ProcessoSchema.name)
     private readonly processoModel: Model<ProcessoDocument>,
   ) {}
+
   async create(processo: Processo): Promise<Processo> {
-    const teste = await this.processoModel.create(processo);
-    return teste;
+    return await this.processoModel.create(processo);
   }
+
   async GetAllUser(): Promise<Processo[]> {
     return await this.processoModel.find();
   }

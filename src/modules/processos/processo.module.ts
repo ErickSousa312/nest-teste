@@ -1,6 +1,5 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ProcessoController } from './processo.controller';
-// import { UsersController } from './users.controller';
 import { verifyAuth } from 'src/middleware/verifyAuth';
 import { ProcessoService } from './shared/processo.service';
 import { MongooseModule } from '@nestjs/mongoose';
