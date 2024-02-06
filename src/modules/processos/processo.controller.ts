@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
 import { ProcessoService } from './shared/processo.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { ProcessoDto } from './dto/processo.dto';
@@ -11,5 +11,11 @@ export class ProcessoController {
   @Post('create')
   create(@Body() processo: ProcessoDto) {
     return this.processoService.create(processo);
+  }
+
+  @UseGuards(AuthGuard)
+  @Get()
+  getAllProcesso() {
+    return this.processoService.GetAllUser();
   }
 }

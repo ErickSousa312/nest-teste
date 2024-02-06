@@ -18,4 +18,7 @@ export class ProcessoService {
     const teste = await this.processoModel.create(processo);
     return teste;
   }
+  async GetAllUser(): Promise<Processo[]> {
+    return await this.processoModel.find();
+  }
 }
