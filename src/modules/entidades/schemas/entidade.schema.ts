@@ -14,10 +14,16 @@ export class EntidadeSchema implements Entidade {
   Cidade: string;
   @Prop()
   Estado: string;
-  @Prop({
-    type: { Nome: String },
-  })
-  Especialidade: [{ Nome: string }];
+  @Prop([
+    {
+      type: { Nome: { type: String } },
+    },
+  ])
+  Especialidades: [
+    {
+      Nome: string;
+    },
+  ];
 }
 
 export const EntidadeSchemaFactory =

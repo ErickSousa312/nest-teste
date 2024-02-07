@@ -9,7 +9,7 @@ export const PreSchemaEntidade = {
   useFactory: async (config: ConfigService) => {
     const schema = EntidadeSchemaFactory;
     schema.pre('save', async function (next) {
-      const lastEntity: any = await FindDocuments('processo', config);
+      const lastEntity: any = await FindDocuments('entidade', config);
       if (lastEntity && lastEntity._id) {
         this._id = lastEntity._id + 1;
       }

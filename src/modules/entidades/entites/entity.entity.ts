@@ -1,23 +1,34 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, MaxLength, MinLength } from 'class-validator';
 
 export class Entidade {
+  //--------------------------------------------------------------------------------------------
   _id: number;
+  //--------------------------------------------------------------------------------------------
   @IsNotEmpty({
     message: 'O campo Entidade é obrigatório',
   })
   NomeEntidade: string;
+  //--------------------------------------------------------------------------------------------
   @IsNotEmpty({
     message: 'O campo Cidade é obrigatório',
   })
   Cidade: string;
+  //--------------------------------------------------------------------------------------------
   @IsNotEmpty({
     message: 'O campo Estado é obrigatório',
   })
-  Estado: string;
-  @IsNotEmpty({
-    message: 'O campo Especialidade é obrigatório',
+  @MaxLength(2, {
+    message: 'Estado deve ter no máximo 2 caracteres',
   })
-  Especialidade: [
+  @MinLength(2, {
+    message: 'Estado deve ter no mínimo 2 caracteres',
+  })
+  Estado: string;
+  //--------------------------------------------------------------------------------------------
+  @IsNotEmpty({
+    message: 'O campo Especialidades é obrigatório',
+  })
+  Especialidades: [
     {
       Nome: string;
     },
