@@ -1,15 +1,16 @@
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { FuncionarioSchema } from '../schemas/funcionario.schema';
 import { FuncionarioSchemaFactory } from '../schemas/funcionario.schema';
-import { FindDocuments } from 'src/database/mongo';
+import { Connection } from 'mongoose';
+import { getConnectionToken } from '@nestjs/mongoose';
 
 export const PreSchemaFuncionario = {
   name: FuncionarioSchema.name,
-  imports: [ConfigModule],
-  useFactory: async (config: ConfigService) => {
+  useFactory: async (connection: Connection) => {
     const schema = FuncionarioSchemaFactory;
     schema.pre('save', async function (next) {
-      const lastEntity: any = await FindDocuments('funcionario', config);
+      const lastEntity: any = await connection
+        .collection('funcionario')
+        .findOne({}, { sort: { _id: -1 } });
       if (lastEntity && lastEntity._id) {
         this._id = lastEntity._id + 1;
       }
@@ -17,5 +18,5 @@ export const PreSchemaFuncionario = {
     });
     return schema;
   },
-  inject: [ConfigService],
+  inject: [getConnectionToken()],
 };

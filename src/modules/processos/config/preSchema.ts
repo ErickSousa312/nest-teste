@@ -1,15 +1,16 @@
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { getConnectionToken } from '@nestjs/mongoose';
 import { ProcessoSchema } from '../schemas/processo.schema';
 import { ProcessoSchemaFactory } from '../schemas/processo.schema';
-import { FindDocuments } from 'src/database/mongo';
+import { Connection } from 'mongoose';
 
 export const PreSchemaProcesso = {
   name: ProcessoSchema.name,
-  imports: [ConfigModule],
-  useFactory: async (config: ConfigService) => {
+  useFactory: async (connection: Connection) => {
     const schema = ProcessoSchemaFactory;
     schema.pre('save', async function (next) {
-      const lastEntity: any = await FindDocuments('processo', config);
+      const lastEntity: any = await connection
+        .collection('processo')
+        .findOne({}, { sort: { _id: -1 } });
       if (lastEntity && lastEntity._id) {
         this._id = lastEntity._id + 1;
       }
@@ -17,5 +18,5 @@ export const PreSchemaProcesso = {
     });
     return schema;
   },
-  inject: [ConfigService],
+  inject: [getConnectionToken()],
 };
