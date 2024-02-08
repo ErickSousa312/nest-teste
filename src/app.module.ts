@@ -1,3 +1,4 @@
+import { FuncionarioModule } from './modules/funcionarios/funcionario.module';
 import { EntidadeModule } from './modules/entidades/entidade.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { Module } from '@nestjs/common';
@@ -11,6 +12,7 @@ import { ProcessoModule } from './modules/processos/processo.module';
 
 @Module({
   imports: [
+    FuncionarioModule,
     EntidadeModule,
     AuthModule,
     UsersModule,
