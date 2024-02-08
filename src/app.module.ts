@@ -1,3 +1,4 @@
+import { PacienteModule } from './modules/paciente/paciente.module';
 import { FuncionarioModule } from './modules/funcionarios/funcionario.module';
 import { EntidadeModule } from './modules/entidades/entidade.module';
 import { AuthModule } from './modules/auth/auth.module';
@@ -12,6 +13,7 @@ import { ProcessoModule } from './modules/processos/processo.module';
 
 @Module({
   imports: [
+    PacienteModule,
     FuncionarioModule,
     EntidadeModule,
     AuthModule,
