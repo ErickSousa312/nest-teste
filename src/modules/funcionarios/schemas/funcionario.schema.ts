@@ -43,7 +43,7 @@ export class FuncionarioSchema implements Funcionario {
   @Prop()
   DataCadastro: Date;
   @Prop()
-  Observação: string;
+  Observacao: string;
 }
 
 export const FuncionarioSchemaFactory =

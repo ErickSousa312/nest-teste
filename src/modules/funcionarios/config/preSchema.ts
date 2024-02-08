@@ -10,8 +10,8 @@ export const PreSchemaFuncionario = {
     const schema = FuncionarioSchemaFactory;
     schema.pre('save', async function (next) {
       const lastEntity: any = await FindDocuments('funcionario', config);
-      if (lastEntity && lastEntity.id) {
-        this._id = lastEntity.id + 1;
+      if (lastEntity && lastEntity._id) {
+        this._id = lastEntity._id + 1;
       }
       next();
     });

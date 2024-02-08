@@ -81,6 +81,6 @@ export class Funcionario {
   @IsNotEmpty({
     message: 'O campo Observação é obrigatório',
   })
-  Observação: string;
+  Observacao: string;
   //--------------------------------------------------------------------------------------------
 }
