@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
 import { UserService } from './shared/user.service';
 import { ApiTags } from '@nestjs/swagger';

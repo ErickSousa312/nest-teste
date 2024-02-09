@@ -15,7 +15,7 @@ export class PacienteController {
 
   @UseGuards(AuthGuard)
   @Get()
-  getAllPaciente() {
+  getAllPaciente(): Promise<PacienteDto[]> {
     return this.pacienteService.GetAllPaciente();
   }
 }

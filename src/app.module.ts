@@ -1,3 +1,4 @@
+import { ParecerSocialModule } from './modules/parecerSocial/parecerSocial.module';
 import { PacienteModule } from './modules/paciente/paciente.module';
 import { FuncionarioModule } from './modules/funcionarios/funcionario.module';
 import { EntidadeModule } from './modules/entidades/entidade.module';
@@ -13,6 +14,7 @@ import { ProcessoModule } from './modules/processos/processo.module';
 
 @Module({
   imports: [
+    ParecerSocialModule,
     PacienteModule,
     FuncionarioModule,
     EntidadeModule,
