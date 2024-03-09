@@ -21,6 +21,7 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @Post('login')
   async sigIn(@Body() auth: AuthDto) {
+    console.log(auth);
     return await this.authService.signIn(auth);
   }
 }
