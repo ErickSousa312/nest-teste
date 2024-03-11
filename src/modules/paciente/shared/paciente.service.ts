@@ -18,4 +18,8 @@ export class PacienteService {
   async GetAllPaciente(): Promise<Paciente[]> {
     return await this.pacienteModel.find();
   }
+
+  getOneById(id: number): Promise<Paciente> {
+    return this.pacienteModel.findById(id);
+  }
 }

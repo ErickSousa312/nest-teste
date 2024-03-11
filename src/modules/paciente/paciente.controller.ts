@@ -1,7 +1,8 @@
-import { Controller, UseGuards, Post, Body, Get } from '@nestjs/common';
+import { Controller, UseGuards, Post, Body, Get, Param } from '@nestjs/common';
 import { PacienteService } from './shared/paciente.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { PacienteDto } from './dto/Paciente.dto';
+import { ForbiddenException } from 'src/utils/httpException/forbidden.exception';
 
 @Controller('pacientes')
 export class PacienteController {
@@ -17,5 +18,15 @@ export class PacienteController {
   @Get()
   getAllPaciente(): Promise<PacienteDto[]> {
     return this.pacienteService.GetAllPaciente();
+  }
+
+  @UseGuards(AuthGuard)
+  @Get(':id')
+  async getPaciente(@Param('id') id: number): Promise<PacienteDto> {
+    try {
+      return await this.pacienteService.getOneById(id);
+    } catch (error) {
+      throw new ForbiddenException(error);
+    }
   }
 }

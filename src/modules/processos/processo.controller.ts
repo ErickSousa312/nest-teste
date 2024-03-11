@@ -1,7 +1,8 @@
-import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Get, Param } from '@nestjs/common';
 import { ProcessoService } from './shared/processo.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { ProcessoDto } from './dto/processo.dto';
+import { Processo } from './entities/processo.entity';
 
 @Controller('processos')
 export class ProcessoController {
@@ -17,5 +18,13 @@ export class ProcessoController {
   @Get()
   getAllProcesso() {
     return this.processoService.GetAllUser();
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('paciente/:id')
+  async getAllProcessoByIdPaciente(
+    @Param('id') id: number,
+  ): Promise<Processo[]> {
+    return await this.processoService.GetProcessByIdPaciente(id);
   }
 }

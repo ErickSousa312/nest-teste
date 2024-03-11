@@ -18,4 +18,8 @@ export class ProcessoService {
   async GetAllUser(): Promise<Processo[]> {
     return await this.processoModel.find();
   }
+
+  GetProcessByIdPaciente(id: number): Promise<Processo[]> {
+    return this.processoModel.find({ IdPaciente: id });
+  }
 }
