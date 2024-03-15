@@ -9,7 +9,7 @@ export class ProcessoSchema implements Processo {
   @Prop({ default: 1 })
   _id: number;
 
-  @Prop()
+  @Prop({ ref: 'PacienteSchema' })
   IdPaciente: number;
 
   @Prop()

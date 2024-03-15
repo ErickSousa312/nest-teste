@@ -16,7 +16,7 @@ export class ProcessoService {
   }
 
   async GetAllUser(): Promise<Processo[]> {
-    return await this.processoModel.find();
+    return await this.processoModel.find().populate('IdPaciente');
   }
 
   GetProcessByIdPaciente(id: number): Promise<Processo[]> {

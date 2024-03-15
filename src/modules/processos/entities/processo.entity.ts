@@ -1,5 +1,4 @@
 import { IsNotEmpty } from 'class-validator';
-
 export class Processo {
   _id: number;
   @IsNotEmpty({
