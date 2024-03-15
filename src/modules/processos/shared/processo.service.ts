@@ -16,10 +16,22 @@ export class ProcessoService {
   }
 
   async GetAllUser(): Promise<Processo[]> {
-    return await this.processoModel.find().populate('IdPaciente');
+    return await this.processoModel.find();
   }
 
   GetProcessByIdPaciente(id: number): Promise<Processo[]> {
     return this.processoModel.find({ IdPaciente: id });
+  }
+
+  GetProcessById(id: number): Promise<Processo> {
+    return this.processoModel.findById(id);
+  }
+
+  GetProcessPopulate(): Promise<Processo[]> {
+    return this.processoModel
+      .find()
+      .populate('IdPaciente')
+      .populate('IdFuncionario')
+      .populate('IdMedico');
   }
 }

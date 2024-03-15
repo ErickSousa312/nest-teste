@@ -27,7 +27,7 @@ export class ProcessoSchema implements Processo {
   @Prop()
   Especialidade: number;
 
-  @Prop()
+  @Prop({ ref: 'FuncionarioSchema' })
   IdFuncionario: number;
 
   @Prop()
