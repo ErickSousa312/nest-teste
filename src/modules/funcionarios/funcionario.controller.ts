@@ -16,6 +16,6 @@ export class FuncionarioController {
   @UseGuards(AuthGuard)
   @Get()
   getAllFuncionario() {
-    return this.funcionarioservice.GetAllUser();
+    return this.funcionarioservice.GetAllFuncionario();
   }
 }

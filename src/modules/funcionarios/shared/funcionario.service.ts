@@ -22,7 +22,7 @@ export class FuncionarioService {
     return await this.funcionarioModel.create(funcionario);
   }
 
-  async GetAllUser(): Promise<Funcionario[]> {
+  async GetAllFuncionario(): Promise<Funcionario[]> {
     return await this.funcionarioModel.find();
   }
 }
