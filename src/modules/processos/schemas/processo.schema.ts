@@ -6,8 +6,8 @@ export type ProcessoDocument = ProcessoSchema & Document;
 
 @Schema({ collection: 'processo', timestamps: true })
 export class ProcessoSchema implements Processo {
-  @Prop({ default: 1 })
-  _id: number;
+  @Prop({ default: '1/2024' })
+  _id: string;
 
   @Prop({ ref: 'PacienteSchema' })
   IdPaciente: number;
@@ -53,9 +53,10 @@ export class ProcessoSchema implements Processo {
 
   @Prop({
     type: {
-      ida: { type: Number },
-      volta: { type: Number },
+      ida: { type: Number, unique: false },
+      volta: { type: Number, unique: false },
     },
+    unique: false,
   })
   TotalPassagem: {
     ida: number;

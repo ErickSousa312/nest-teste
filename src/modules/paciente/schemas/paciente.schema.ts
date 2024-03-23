@@ -70,7 +70,7 @@ export class PacienteSchema implements Paciente {
     {
       type: {
         NomeAcompanhante: { type: String },
-        NumeroCPF: { type: String, unique: true },
+        NumeroCPF: { type: String, unique: false },
         NumeroRG: { type: String },
         DataNascimento: { type: Date },
       },
