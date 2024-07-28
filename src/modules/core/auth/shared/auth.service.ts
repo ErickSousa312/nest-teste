@@ -1,10 +1,10 @@
-import { HttpStatus, HttpException } from '@nestjs/common';
-import { Injectable } from '@nestjs/common';
-import { UserService } from 'src/modules/users/shared/user.service';
-import { JwtService } from '@nestjs/jwt';
-import { AuthDto } from '../dto/auth.dto';
-import * as bcrypt from 'bcrypt';
-import { Typetoken } from '../dto/@typeToken';
+import { HttpStatus, HttpException } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
+import { UserService } from "src/modules/core/users/shared/user.service";
+import { JwtService } from "@nestjs/jwt";
+import { AuthDto } from "../dto/auth.dto";
+import * as bcrypt from "bcrypt";
+import { Typetoken } from "../dto/@typeToken";
 
 @Injectable()
 export class AuthService {
@@ -14,12 +14,11 @@ export class AuthService {
   ) {}
 
   async signIn(user: AuthDto): Promise<Typetoken> {
-    const data = await this.userService.findOne(user.userName);
-    data;
+    const data = await this.userService.findOneName(user.userName);
     if (!data) {
       throw new HttpException(
         {
-          message: 'User Not Found',
+          message: "User Not Found",
         },
         HttpStatus.NOT_FOUND,
       );
@@ -28,7 +27,7 @@ export class AuthService {
     if (!compare) {
       throw new HttpException(
         {
-          message: 'No match password',
+          message: "No match password",
         },
         HttpStatus.UNAUTHORIZED,
       );

@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { Processo } from '../entities/processo.entity';
-import { ProcessoDocument, ProcessoSchema } from '../schemas/processo.schema';
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+import { Processo } from "../entities/processo.entity";
+import { ProcessoDocument, ProcessoSchema } from "../schemas/processo.schema";
 
 @Injectable()
 export class ProcessoService {
@@ -30,8 +30,8 @@ export class ProcessoService {
   GetProcessPopulate(): Promise<Processo[]> {
     return this.processoModel
       .find()
-      .populate('IdPaciente')
-      .populate('IdFuncionario')
-      .populate('IdMedico');
+      .populate("IdPaciente")
+      .populate("IdFuncionario")
+      .populate("IdMedico");
   }
 }

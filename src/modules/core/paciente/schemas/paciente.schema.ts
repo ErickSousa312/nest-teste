@@ -1,10 +1,10 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import { Paciente } from '../entites/paciente.entity';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
+import { Paciente } from "../entites/paciente.entity";
 
 export type PacienteDocument = PacienteSchema & Document;
 
-@Schema({ collection: 'paciente', timestamps: true })
+@Schema({ collection: "paciente", timestamps: true })
 export class PacienteSchema implements Paciente {
   @Prop({ default: 1 })
   _id: number;

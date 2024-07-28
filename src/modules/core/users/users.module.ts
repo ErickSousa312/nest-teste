@@ -1,10 +1,10 @@
-import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
-import { UsersController } from './users.controller';
+import { Module, NestModule, MiddlewareConsumer } from "@nestjs/common";
+import { UsersController } from "./users.controller";
 // import { UsersController } from './users.controller';
-import { verifyAuth } from 'src/middleware/verifyAuth';
-import { UserService } from './shared/user.service';
-import { MongooseModule } from '@nestjs/mongoose';
-import { PreSchemaUser } from './configs/preSchema';
+import { verifyAuth } from "src/middleware/verifyAuth";
+import { UserService } from "./shared/user.service";
+import { MongooseModule } from "@nestjs/mongoose";
+import { PreSchemaUser } from "./configs/preSchema";
 @Module({
   imports: [MongooseModule.forFeatureAsync([PreSchemaUser])],
   controllers: [UsersController],
@@ -13,6 +13,6 @@ import { PreSchemaUser } from './configs/preSchema';
 })
 export class UsersModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(verifyAuth).forRoutes('users');
+    consumer.apply(verifyAuth).forRoutes("users");
   }
 }

@@ -1,15 +1,15 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import { Processo } from '../entities/processo.entity';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
+import { Processo } from "../entities/processo.entity";
 
 export type ProcessoDocument = ProcessoSchema & Document;
 
-@Schema({ collection: 'processo', timestamps: true })
+@Schema({ collection: "processo", timestamps: true })
 export class ProcessoSchema implements Processo {
-  @Prop({ default: '1/2024' })
+  @Prop({ default: "1/2024" })
   _id: string;
 
-  @Prop({ ref: 'PacienteSchema' })
+  @Prop({ ref: "PacienteSchema" })
   IdPaciente: number;
 
   @Prop()
@@ -27,7 +27,7 @@ export class ProcessoSchema implements Processo {
   @Prop()
   Especialidade: number;
 
-  @Prop({ ref: 'FuncionarioSchema' })
+  @Prop({ ref: "FuncionarioSchema" })
   IdFuncionario: number;
 
   @Prop()

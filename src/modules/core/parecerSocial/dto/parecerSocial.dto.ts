@@ -1,3 +1,3 @@
-import { ParecerSocial } from '../entities/parecerSocial.entity';
+import { ParecerSocial } from "../entities/parecerSocial.entity";
 
 export class ParecerSocialDto extends ParecerSocial {}

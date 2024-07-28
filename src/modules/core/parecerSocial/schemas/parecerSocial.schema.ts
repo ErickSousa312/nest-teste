@@ -1,10 +1,10 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import { ParecerSocial } from '../entities/parecerSocial.entity';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
+import { ParecerSocial } from "../entities/parecerSocial.entity";
 
 export type ParecerSocialDocument = ParecerSocial & Document;
 
-@Schema({ collection: 'parecerSocial', timestamps: true })
+@Schema({ collection: "parecerSocial", timestamps: true })
 export class ParecerSocialSchema implements ParecerSocial {
   @Prop({ default: 1 })
   _id: number;

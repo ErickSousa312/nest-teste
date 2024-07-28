@@ -8,20 +8,19 @@ import {
   UseGuards,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   HttpException,
-} from '@nestjs/common';
-import { Public } from './constants/constants';
-import { AuthDto } from './dto/auth.dto';
-import { AuthService } from './shared/auth.service';
+} from "@nestjs/common";
+import { Public } from "./constants/constants";
+import { AuthDto } from "./dto/auth.dto";
+import { AuthService } from "./shared/auth.service";
 // import { AuthGuard } from './auth.guard';
 
-@Controller('auth')
+@Controller("auth")
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
   @Public()
   @HttpCode(HttpStatus.OK)
-  @Post('login')
+  @Post("login")
   async sigIn(@Body() auth: AuthDto) {
-    console.log(auth);
     return await this.authService.signIn(auth);
   }
 }

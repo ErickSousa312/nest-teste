@@ -2,17 +2,17 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
-import { EntidadeService } from './shared/entidade.service';
-import { AuthGuard } from '../auth/auth.guard';
-import { EntidadeDto } from './dto/entidade.dto';
+import { Controller, Post, Body, UseGuards, Get } from "@nestjs/common";
+import { EntidadeService } from "./shared/entidade.service";
+import { AuthGuard } from "../auth/auth.guard";
+import { EntidadeDto } from "./dto/entidade.dto";
 
-@Controller('entidades')
+@Controller("entity")
 export class EntidadeController {
   constructor(private readonly entidadeService: EntidadeService) {}
 
   @UseGuards(AuthGuard)
-  @Post('create')
+  @Post("create")
   create(@Body() entidade: EntidadeDto): Promise<EntidadeDto> {
     return this.entidadeService.create(entidade);
   }

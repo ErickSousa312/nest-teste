@@ -1,10 +1,10 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { FuncionarioController } from './funcionario.controller';
-import { FuncionarioService } from './shared/funcionario.service';
-import { AuthGuard } from '../auth/auth.guard';
-import { CanActivate } from '@nestjs/common';
+import { Test, TestingModule } from "@nestjs/testing";
+import { FuncionarioController } from "./funcionario.controller";
+import { FuncionarioService } from "./shared/funcionario.service";
+import { AuthGuard } from "../auth/auth.guard";
+import { CanActivate } from "@nestjs/common";
 
-describe('FuncionarioController', () => {
+describe("FuncionarioController", () => {
   let funcionarioController: FuncionarioController;
   let funcionarioService: FuncionarioService;
 
@@ -35,7 +35,7 @@ describe('FuncionarioController', () => {
     funcionarioService = app.get<FuncionarioService>(FuncionarioService);
   });
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(funcionarioController).toBeDefined();
     expect(funcionarioService).toBeDefined();
   });

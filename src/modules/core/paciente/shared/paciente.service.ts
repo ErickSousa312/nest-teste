@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { Paciente } from '../entites/paciente.entity';
-import { PacienteDocument, PacienteSchema } from '../schemas/paciente.schema';
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+import { Paciente } from "../entites/paciente.entity";
+import { PacienteDocument, PacienteSchema } from "../schemas/paciente.schema";
 
 @Injectable()
 export class PacienteService {

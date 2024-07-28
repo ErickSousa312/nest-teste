@@ -1,10 +1,10 @@
-import { MongooseModule } from '@nestjs/mongoose';
-import { ParecerSocialController } from './parecerSocial.controller';
-import { PreSchemaParecerSocial } from './config/preSchema';
+import { MongooseModule } from "@nestjs/mongoose";
+import { ParecerSocialController } from "./parecerSocial.controller";
+import { PreSchemaParecerSocial } from "./config/preSchema";
 
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { ParecerSocialService } from './shared/parecerSocial.service';
-import { verifyAuth } from 'src/middleware/verifyAuth';
+import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
+import { ParecerSocialService } from "./shared/parecerSocial.service";
+import { verifyAuth } from "src/middleware/verifyAuth";
 
 @Module({
   imports: [MongooseModule.forFeatureAsync([PreSchemaParecerSocial])],
@@ -14,6 +14,6 @@ import { verifyAuth } from 'src/middleware/verifyAuth';
 })
 export class ParecerSocialModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(verifyAuth).forRoutes('parecerSocial');
+    consumer.apply(verifyAuth).forRoutes("parecerSocial");
   }
 }

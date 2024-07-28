@@ -6,13 +6,13 @@ import {
   Get,
   Param,
   Query,
-} from '@nestjs/common';
-import { ProcessoService } from './shared/processo.service';
-import { AuthGuard } from '../auth/auth.guard';
-import { ProcessoDto } from './dto/processo.dto';
-import { Processo } from './entities/processo.entity';
+} from "@nestjs/common";
+import { ProcessoService } from "./shared/processo.service";
+import { AuthGuard } from "../auth/auth.guard";
+import { ProcessoDto } from "./dto/processo.dto";
+import { Processo } from "./entities/processo.entity";
 
-@Controller('processos')
+@Controller("processos")
 export class ProcessoController {
   constructor(private readonly processoService: ProcessoService) {}
 
@@ -25,23 +25,23 @@ export class ProcessoController {
   @UseGuards(AuthGuard)
   @Get()
   getAllProcesso(@Query() { populate }: { populate: string }) {
-    if (populate === 'true') {
+    if (populate === "true") {
       return this.processoService.GetProcessPopulate();
     }
     return this.processoService.GetAllUser();
   }
 
   @UseGuards(AuthGuard)
-  @Get('paciente/:id')
+  @Get("paciente/:id")
   async getAllProcessoByIdPaciente(
-    @Param('id') id: number,
+    @Param("id") id: number,
   ): Promise<Processo[]> {
     return await this.processoService.GetProcessByIdPaciente(id);
   }
 
   @UseGuards(AuthGuard)
-  @Get(':id')
-  async getAllProcessoById(@Param('id') id: number): Promise<Processo> {
+  @Get(":id")
+  async getAllProcessoById(@Param("id") id: number): Promise<Processo> {
     return await this.processoService.GetProcessById(id);
   }
 }

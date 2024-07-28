@@ -1,10 +1,10 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import { Funcionario } from '../entities/funcionario.entity';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
+import { Funcionario } from "../entities/funcionario.entity";
 
 export type FuncionarioDocument = FuncionarioSchema & Document;
 
-@Schema({ collection: 'funcionario', timestamps: true })
+@Schema({ collection: "funcionario", timestamps: true })
 export class FuncionarioSchema implements Funcionario {
   @Prop({ default: 1 })
   _id: number;
