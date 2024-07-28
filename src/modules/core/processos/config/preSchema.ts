@@ -8,8 +8,7 @@ export const PreSchemaProcesso = {
   useFactory: async (connection: Connection) => {
     const schema = ProcessoSchemaFactory;
     schema.pre("save", async function (next) {
-      const now = new Date();
-      const year = now.getFullYear();
+      const year = new Date().getFullYear();
       const lastEntity: any = await connection
         .collection("processo")
         .findOne({}, { sort: { createdAt: -1 } });

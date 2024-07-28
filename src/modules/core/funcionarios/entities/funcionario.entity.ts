@@ -45,7 +45,7 @@ export class Funcionario {
   UfCidade: string;
   //--------------------------------------------------------------------------------------------
   @IsNotEmpty({
-    message: "O campo nomeFuncionario é obrigatório",
+    message: "O campo CEP é obrigatório",
   })
   CEP: string;
   //--------------------------------------------------------------------------------------------

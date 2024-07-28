@@ -4,7 +4,7 @@ import { AuthGuard } from "../auth/auth.guard";
 import { PacienteDto } from "./dto/Paciente.dto";
 import { ForbiddenException } from "src/utils/httpException/forbidden.exception";
 
-@Controller("pacientes")
+@Controller("patient")
 export class PacienteController {
   constructor(private readonly pacienteService: PacienteService) {}
 

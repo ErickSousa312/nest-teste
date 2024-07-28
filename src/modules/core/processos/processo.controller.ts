@@ -11,13 +11,14 @@ import { ProcessoService } from "./shared/processo.service";
 import { AuthGuard } from "../auth/auth.guard";
 import { ProcessoDto } from "./dto/processo.dto";
 import { Processo } from "./entities/processo.entity";
+import { FindOneParams } from "src/validations/FindOneParams";
 
-@Controller("processos")
+@Controller("process")
 export class ProcessoController {
   constructor(private readonly processoService: ProcessoService) {}
 
   @UseGuards(AuthGuard)
-  @Post()
+  @Post("create")
   create(@Body() processo: ProcessoDto) {
     return this.processoService.create(processo);
   }
@@ -32,7 +33,7 @@ export class ProcessoController {
   }
 
   @UseGuards(AuthGuard)
-  @Get("paciente/:id")
+  @Get("patient/:id")
   async getAllProcessoByIdPaciente(
     @Param("id") id: number,
   ): Promise<Processo[]> {
@@ -41,7 +42,8 @@ export class ProcessoController {
 
   @UseGuards(AuthGuard)
   @Get(":id")
-  async getAllProcessoById(@Param("id") id: number): Promise<Processo> {
+  async getAllProcessoById(@Param() params: FindOneParams): Promise<Processo> {
+    const { id } = params;
     return await this.processoService.GetProcessById(id);
   }
 }
